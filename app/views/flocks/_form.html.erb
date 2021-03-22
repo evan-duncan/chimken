@@ -1,0 +1,23 @@
+<%= form_with(model: flock, local: true) do |form| %>
+  <% if flock.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(flock.errors.count, "error") %> prohibited this flock from being saved:</h2>
+
+      <ul>
+        <% flock.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control", "aria-described-by" => "nameHelp" %>
+    <div id="nameHelp" class="form-text">A great flock has to have a name!</div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit nil, class: 'btn btn-primary' %>
+  </div>
+<% end %>

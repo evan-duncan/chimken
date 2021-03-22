@@ -30,5 +30,13 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
+
+    can :read, :all
+    if user.present?
+      can :create, Flock
+      can :manage, Flock do |flock|
+        flock.users.where(id: user.id).exists?
+      end
+    end
   end
 end

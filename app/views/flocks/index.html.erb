@@ -1,0 +1,36 @@
+<h1><%= current_page?(myflocks_path) ? 'My' : 'All' %> Flocks</h1>
+
+<br />
+
+<%= link_to 'New Flock', new_flock_path, class: 'btn btn-primary' %>
+
+<% if current_page?(myflocks_path) %>
+  <%= link_to 'All Flocks', flocks_path, class: 'btn btn-secondary' %>
+<% else %>
+  <%= link_to 'My Flocks', myflocks_path, class: 'btn btn-secondary' %>
+<% end %>
+
+<br>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @flocks.each do |flock| %>
+      <tr>
+        <th scope="row"><%= flock.id %></th>
+        <td><%= flock.name %></td>
+        <td>
+          <%= link_to 'View', flock %>
+          <%= link_to('Edit', edit_flock_path(flock)) if can?(:manage, flock) -%>
+          <%= link_to('Destroy', flock, method: :delete, data: { confirm: 'Are you sure?' }) if can?(:manage, flock) -%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
