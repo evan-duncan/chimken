@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Chimkens</h1>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @chickens.each do |chicken| %>
+    <tr>
+      <th scope="row"><%= chicken.id %></th>
+      <td><%= chicken.name %></td>
+      <td>
+        <%= link_to 'View', flock_chicken_path(@flock, chicken) %>
+        <%= link_to('Edit', edit_flock_chicken_path(@flock, chicken)) if can?(:manage, chicken) -%>
+        <%= link_to('Destroy', flock_chicken_path(@flock, chicken), method: :delete, data: { confirm: 'Are you sure?' }) if can?(:manage, chicken) -%>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Chimken', new_flock_chicken_path, class: 'btn btn-primary' %>

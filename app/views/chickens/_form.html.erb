@@ -1,0 +1,37 @@
+<%= form_with(model: [@flock, chicken], local: true) do |form| %>
+  <% if chicken.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(chicken.errors.count, "error") %> prohibited this chicken from being saved:</h2>
+
+      <ul>
+        <% chicken.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control", "aria-described-by" => "nameHelp" %>
+    <div id="nameHelp" class="form-text">Give your chimken a name if you haven't!</div>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :breed_id, class: "form-label" %>
+    <%= form.select :breed_id, Breed.all.collect { |b| [b.name, b.id] }, {}, class: "form-select" %>
+  </div>
+
+  <div class="mb-3">
+    <div class="row row-cols-lg-auto">
+    <%= form.label :born_at, class: "form-label align-items-center" %>
+      <div class="col-12 d-inline-flex align-items-center">
+        <%= form.date_select :born_at, { start_year: Date.today.year - 10, end_year: Date.today.year }, class: "form-select form-select-sm d-inline" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Create Chimken', class: 'btn btn-primary' %>
+  </div>
+<% end %>

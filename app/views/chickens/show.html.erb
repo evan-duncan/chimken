@@ -1,0 +1,5 @@
+<h1><%= @chicken.name %></h1>
+<h2 class="small">Born: <%= l(@chicken.born_at, format: :long) %></h2>
+
+<%= link_to 'Edit', edit_flock_chicken_path(@chicken) %> |
+<%= link_to 'Back', flock_chickens_path %>

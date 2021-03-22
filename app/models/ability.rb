@@ -37,6 +37,12 @@ class Ability
       can :manage, Flock do |flock|
         flock.users.where(id: user.id).exists?
       end
+      can :create, Chicken do |chicken|
+        can? :manage, chicken.flock
+      end
+      can :manage, Chicken do |chicken|
+        can? :manage, chicken.flock
+      end
     end
   end
 end
