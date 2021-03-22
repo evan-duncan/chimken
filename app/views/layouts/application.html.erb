@@ -17,6 +17,8 @@
   <body>
     <%= render 'layouts/navbar' %>
     <main class="container-fluid">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
       <%= yield %>
     </main>
   </body>
