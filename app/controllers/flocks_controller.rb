@@ -7,6 +7,8 @@ class FlocksController < ApplicationController
   end
 
   def myflocks
+    return redirect_to flocks_path if current_user.nil?
+
     @flocks = current_user.flocks
     render 'index'
   end

@@ -5,4 +5,23 @@
 
 <br>
 <br>
+<%= link_to 'Invite User', new_flock_invitation_path(@flock), class: 'btn btn-outline-dark' %>
+<h1>Chimkens</h1>
 <%= link_to 'Add Chimken', new_flock_chicken_path(@flock), class: 'btn btn-primary' %>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @flock.chickens.each do |chicken| %>
+    <tr>
+      <th scope="row"><%= chicken.id %></th>
+      <td><%= chicken.name %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

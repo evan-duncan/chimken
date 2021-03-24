@@ -7,7 +7,7 @@
 <% if current_page?(myflocks_path) %>
   <%= link_to 'All Flocks', flocks_path, class: 'btn btn-secondary' %>
 <% else %>
-  <%= link_to 'My Flocks', myflocks_path, class: 'btn btn-secondary' %>
+  <%= link_to('My Flocks', myflocks_path, class: 'btn btn-secondary') if user_signed_in? -%>
 <% end %>
 
 <br>
