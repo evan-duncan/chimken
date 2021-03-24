@@ -7,5 +7,5 @@ class User < ApplicationRecord
   has_and_belongs_to_many :flocks
   has_many :chickens, through: :flocks
 
-  validates_uniqueness_of :username
+  validates :username, presence: true, uniqueness: true
 end
