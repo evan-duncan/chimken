@@ -1,13 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
   <div class="container-fluid">
-    <a class="navbar-brand" href="<%= root_path %>">Chimken</a>
+    <a class="navbar-brand" href="<%= main_app.root_path %>">Chimken</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="<%= flocks_path %>" tabindex="-1" aria-disabled="true">Flocks</a>
+          <a class="nav-link" href="<%= main_app.flocks_path %>" tabindex="-1" aria-disabled="true">Flocks</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= main_app.thredded_path %>" tabindex="-1" aria-disabled="true">Forums</a>
         </li>
       </ul>
       <form class="d-flex">
@@ -17,17 +20,17 @@
       <ul class="navbar-nav ms-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to t('user.account'), edit_user_registration_path, class: 'nav-link' %>
+            <%= link_to t('user.account'), main_app.edit_user_registration_path, class: 'nav-link' %>
           </li>
           <li class="nav-item">
-            <%= link_to t('user.log_out'), destroy_user_session_path, class: 'nav-link', method: :delete %>
+            <%= link_to t('user.log_out'), main_app.destroy_user_session_path, class: 'nav-link', method: :delete %>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to t('user.sign_in'), new_user_session_path, class: 'nav-link' %>
+            <%= link_to t('user.sign_in'), main_app.new_user_session_path, class: 'nav-link' %>
           </li>
           <li class="nav-item">
-            <%= link_to t('user.register'), new_user_registration_path, class: 'nav-link' %>
+            <%= link_to t('user.register'), main_app.new_user_registration_path, class: 'nav-link' %>
           </li>
         <% end %>
       </ul>

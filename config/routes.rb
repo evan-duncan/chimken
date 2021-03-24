@@ -5,5 +5,8 @@ Rails.application.routes.draw do
     resources :invitations, only: %i[new create]
   end
   get 'myflocks', controller: :flocks
+
+  mount Thredded::Engine => '/forums'
+
   root 'welcome#index'
 end
