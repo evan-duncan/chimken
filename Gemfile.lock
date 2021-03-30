@@ -211,6 +211,8 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    seed_migrations (1.4.0)
+      rails (>= 6.0.0, < 6.2)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -286,6 +288,7 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)
   sass-rails (>= 6)
+  seed_migrations
   spring
   spring-watcher-listen (~> 2.0.0)
   thredded (~> 0.16.16)
