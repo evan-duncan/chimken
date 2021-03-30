@@ -19,7 +19,7 @@
 
   <div class="mb-3">
     <%= form.label :breed_id, class: "form-label" %>
-    <%= form.select :breed_id, Breed.all.collect { |b| [b.name, b.id] }, {}, class: "form-select" %>
+    <%= form.select :breed_id, Breed.all.order(:name).collect { |b| [b.name, b.id] }, {}, class: "form-select" %>
   </div>
 
   <div class="mb-3">
